@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,6 +31,12 @@ gem 'rack-cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Testing framework
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails', '~> 4.11'
+  gem 'faker', '~> 1.9'
+  gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner', '~> 1.7'
 end
 
 group :development do
