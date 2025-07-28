@@ -1,0 +1,28 @@
+name: Issue Management
+
+on:
+  issues:
+    types: [opened, edited, labeled, unlabeled]
+
+jobs:
+  issue-tracker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check for high priority bugs
+        if: contains(github.event.issue.labels.*.name, 'high-priority')
+        run: |
+          echo "High priority bug detected: ${{ github.event.issue.title }}"
+          echo "Issue URL: ${{ github.event.issue.html_url }}"
+          echo "Please review and assign appropriate team members"
+      
+      - name: Check for frontend bugs
+        if: contains(github.event.issue.labels.*.name, 'frontend')
+        run: |
+          echo "Frontend bug detected: ${{ github.event.issue.title }}"
+          echo "Consider assigning to frontend team"
+      
+      - name: Check for backend bugs
+        if: contains(github.event.issue.labels.*.name, 'backend')
+        run: |
+          echo "Backend bug detected: ${{ github.event.issue.title }}"
+          echo "Consider assigning to backend team"
